@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tripacco : Traveling and Lodging</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            }
+
+            #logo {
+                display: flex;
+                font-family: cursive;
+                justify-content: center;
+            }
+
+            #logo>img {
+                width: 50px;
+            }
+
+            #nav>div:nth-child(1) {
+                display: flex;
+                align-items: center;
+                width: 20%;
+                justify-content: space-between;
+                margin-left: 150px;
+            }
+
+            #nav>div:nth-child(2) img {
+                width: 20px;
+            }
+
+            #nav>div:nth-child(2) {
+                display: flex;
+                width: 15%;
+                justify-content: space-between;
+                margin-right: 150px;
+            }
+
+            #body {
+                width: 80%;
+                margin: auto;
+            }
+
+            #body>div:nth-child(1) {
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                height: 250px;
+                border-radius: 20px;
+                margin-top: 50px;
+            }
+
+            #body>div:nth-child(2) {
+                width: 100%;
+                height: 500px;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                background-image: url("https://media.istockphoto.com/id/1215791152/photo/moonrise-over-south-central-mumbai-the-financial-capital-of-india-showing-a-glittering.jpg?s=612x612&w=0&k=20&c=vJB6RQMWZ4D9pZ2Kva7QLLBbcAf8SGrRZ-ehCeR76zw=");
+                background-size: 100% 500px;
+                margin-top: 70px;
+                padding: 40px;
+            }
+
+            #body>div:nth-child(2)>div {
+                width: 40%;
+                color: white;
+            }
+
+            #body>div:nth-child(2)>div * {
+                margin: 15px;
+            }
+
+            #body>div:nth-child(2)>div h1 {
+                font-size: 40px;
+            }
+
+            #body>div:nth-child(2)>div p {
+                font-size: 20px;
+            }
+
+            button {
+                color: white;
+                background-color: rgb(76, 211, 134);
+                padding: 15px;
+                border: 0px;
+                border-radius: 5px;
+                font-size: 20px;
+            }
+
+            #body>div:nth-child(3) {
+                margin-top: 50px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                height: 300px;
+                border-radius: 20px;
+                display: flex;
+                justify-content: space-between;
+                /* align-items: center; */
+            }
+
+            #body>div:nth-child(3)>img {
+                height: 100%;
+                width: 35%;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+
+            #body>div:nth-child(3)>img~div img {
+                height: 50%;
+                margin-right: 20px;
+            }
+
+            #body>div:nth-child(3)>div:nth-child(2) {
+                width: 45%;
+            }
+
+            #body>div:nth-child(4) {
+                margin-top: 100px;
+                width: 100%;
+                height: 300px;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                background-image: url("https://www.fabhotels.com/blog/wp-content/uploads/2018/08/1000x650-29.jpg");
+                background-size: 100% 300px;
+                color: white;
+                padding-top: 250px;
+                padding-left: 40px;
+            }
+
+            #body>div:nth-child(3)>div * {
+                margin-top: 15px;
+            }
+
+            #body>div:nth-child(1)>div:nth-child(1) {
+                display: flex;
+                padding: 20px;
+                justify-content: space-evenly;
+                width: 40%;
+                margin: auto;
+            }
+
+            /* #body>div:nth-child(1)>div:nth-child(2) {} */
+
+            #footer>div:first-child {
+                margin-bottom: 70px;
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                margin: auto;
+                padding-bottom: 30px;
+                border-bottom: 1px solid rgba(245, 245, 245, 0.8);
+            }
+
+            #footer>div:first-child * {
+                margin-top: 20px;
+            }
+
+            #footer>div:nth-child(2) {
+                padding-top: 30px;
+
+            }
+
+            #footer {
+                margin-top: 100px;
+                color: rgba(245, 245, 245, 0.8);
+                background-color: rgb(0, 0, 0);
+                padding: 30px 0px;
+            }
+
+            #footer a {
+                color: rgba(0, 255, 255, 0.568);
+            }
+
+            #footer p {
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            #search-box>div>* {
+                height: 50px;
+                border: 1px solid rgba(0, 0, 0, 0.575);
+                border-radius: 10px;
+            }
+
+            #search-box>div {
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid rgba(131, 129, 129, 0.438);
+                padding: 30px;
+            }
+
+            #search-box button {
+                display: block;
+                padding: 10px 60px;
+                margin: auto;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: white;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+
+            .dropdown-content a {
+                padding: 12px 16px;
+                display: block;
+            }
+
+            .show {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="nav">
+            <div>
+                <a href="">
+                    <div id="logo">
+                        <h1>Trip</h1>
+                        <img src="logo2.png" alt="">
+                        <h1>cco</h1>
+                    </div>
+                </a>
+
+                <div class="dropdown">
+                    <div onclick="myFunction()" class="click">More Travel ›</div>
+
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#"><img src="" alt=""> Stays</a>
+                        <a href="#"><img src="" alt=""> Flights</a>
+                        <a href="#"><img src="" alt=""> Cars</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="support.html">Support</a>
+                <div>
+                    <a href="">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkKN4VOU-qlwKwyzF4Dms8qldIqrRW01F0jw&usqp=CAU"
+                            alt="">
+                    </a>
+                </div>
+                <div>Sign in</div>
+            </div>
+        </div>
+
+        <div id="body">
+            <div>
+                <div>
+                    <h4>Stays</h4>
+                    <h4>Flights</h4>
+                    <h4>Cars</h4>
+                </div>
+                <div id="search-box">
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h1>Save instantly with Tripacco Rewards</h1>
+                    <p>You can enjoy access to perks like Member Prices, saving an average of 15% on thousands of
+                        hotels. Terms may apply.</p>
+                    <button>Get Membership</button>
+                </div>
+            </div>
+            <div>
+                <img src="https://static2.tripoto.com/media/filter/tst/img/308363/SpotDocument/1512627485_1512627478_historicalmonuments23.jpg"
+                    alt="">
+                <div>
+                    <h1>Go further with the Tripacco app</h1>
+                    <p>Save even more - Get up to 20% on select hotels and earn double the points when you book on the
+                        app. Our app deals help you to save on trips so you can travel more and managing it all on the
+                        go.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.expedia.bookings&hl=en_IN&gl=US"><button>Get
+                            the app</button></a>
+                </div>
+                <div>
+                    <img src="https://a.travel-assets.com/mad-service/qr-code/footer_qr_hp/BEX-HP-CONTROL-27.png"
+                        alt="QR">
+                    <h3>Scan the QR code</h3>
+                </div>
+            </div>
+            <div>
+                <h3>Book in advance and get discount of 30%</h3>
+            </div>
+
+        </div>
+        <div id="footer">
+            <div>
+                <div>
+                    <h3>Company</h3>
+                    <div><a href="">About us</a></div>
+                    <div><a href="">Jobs</a></div>
+                    <div><a href="">list your property</a></div>
+                    <div><a href="">Partnership</a></div>
+                </div>
+                <div>
+                    <h3>Policies</h3>
+                    <div><a href="">Privacy Statements</a></div>
+                    <div><a href="">Terms of use</a></div>
+                    <div><a href="">Vrbo Terms & Conditions</a></div>
+                </div>
+                <div>
+                    <h3>Help</h3>
+                    <div><a href="support.html">Support</a></div>
+                    <div><a href="">Change or cancel your booking</a></div>
+                    <div><a href="">Refund Process</a></div>
+                </div>
+            </div>
+
+            <div id="logo">
+                <h1>Trip</h1>
+                <img src="logo2.png" alt="">
+                <h1>cco</h1>
+            </div>
+            <p>© 2022 Tripacco | All rights reserved</p>
+        </div>
+
+    </body>
+
+</html>
+<script>
+    let stays = document.querySelector("#body>div:first-child h4:nth-child(1)");
+    let flights = document.querySelector("#body>div:first-child h4:nth-child(2)");
+    let cars = document.querySelector("#body>div:first-child h4:nth-child(3)");
+    let box = document.getElementById("search-box");
+
+    box.style.width = "95%";
+    box.style.margin = "auto";
+
+    xyz();
+
+    stays.addEventListener("click", xyz);
+    flights.addEventListener("click", abc);
+    cars.addEventListener("click", zyx);
+    function xyz() {
+        box.innerHTML = null;
+        let card = document.createElement("div");
+        let go = document.createElement("div");
+        go.innerText = " Going to";
+        go.style.width = "40%";
+        let cIn = document.createElement("div");
+        cIn.innerText = "Check in";
+        cIn.style.width = "15%";
+        let cOut = document.createElement("div");
+        cOut.innerText = "Check out";
+        cOut.style.width = "15%";
+        let trav = document.createElement("div");
+        trav.innerText = "Travellers";
+        trav.style.width = "25%";
+        card.append(go, cIn, cOut, trav);
+        let btn = document.createElement("button");
+        btn.innerText = "Search";
+
+        box.append(card, btn)
+    }
+
+    function abc() {
+        box.innerHTML = null;
+        let card = document.createElement("div");
+        let go = document.createElement("div");
+        go.innerText = " Going to";
+        go.style.width = "40%";
+        let cIn = document.createElement("div");
+        cIn.innerText = "Check in";
+        cIn.style.width = "15%";
+        let cOut = document.createElement("div");
+        cOut.innerText = "Check out";
+        cOut.style.width = "15%";
+        let trav = document.createElement("div");
+        trav.innerText = "Travellers";
+        trav.style.width = "25%";
+        card.append(go, cIn, cOut, trav);
+        let btn = document.createElement("button");
+        btn.innerText = "Search";
+        box.append(card, btn)
+    }
+
+    function zyx() {
+        box.innerHTML = null;
+        let card = document.createElement("div");
+        let go = document.createElement("div");
+        go.innerText = " Going to";
+        go.style.width = "40%";
+        let cIn = document.createElement("div");
+        cIn.innerText = "Check in";
+        cIn.style.width = "15%";
+        let cOut = document.createElement("div");
+        cOut.innerText = "Check out";
+        cOut.style.width = "15%";
+        let trav = document.createElement("div");
+        trav.innerText = "Travellers";
+        trav.style.width = "25%";
+        card.append(go, cIn, cOut, trav);
+        let btn = document.createElement("button");
+        btn.innerText = "Search";
+        box.append(card, btn)
+    }
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.click')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
