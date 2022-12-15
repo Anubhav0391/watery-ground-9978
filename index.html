@@ -6,7 +6,64 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tripacco : Traveling and Lodging</title>
+        <link rel="icon" href="logo2.png" />
+        <link rel="stylesheet" href="index.css">
         <style>
+            #search-box {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 10px;
+                grid-auto-rows: 60px;
+            }
+
+            #search-box>div {
+                border: 1px solid rgba(0, 0, 0, 0.493);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                padding-left: 10px;
+                justify-content: start;
+            }
+
+            #search-box>div:nth-child(1) {
+                grid-column-start: 1;
+                grid-column-end: 4;
+            }
+
+            #search-box>div:nth-child(2) {
+                grid-column-start: 4;
+                grid-column-end: 5;
+            }
+
+            #search-box>div:nth-child(3) {
+                grid-column-start: 5;
+                grid-column-end: 6;
+            }
+
+            #search-box>div:nth-child(4) {
+                grid-column-start: 6;
+                grid-column-end: 8;
+            }
+
+            #search-box input:focus {
+                outline: white;
+            }
+
+            #search-box input {
+                border: 0px;
+                width: 100%;
+                font-size: 20px;
+            }
+
+
+            #search-box img {
+                height: 30px;
+                border: 0px;
+                margin-right: 20px;
+                /* margin-bottom: 10px; */
+            }
+        </style>
+        <!-- <style>
             * {
                 box-sizing: border-box;
                 margin: 0px;
@@ -60,6 +117,7 @@
                 height: 250px;
                 border-radius: 20px;
                 margin-top: 50px;
+                padding: 20px;
             }
 
             #body>div:nth-child(2) {
@@ -97,6 +155,20 @@
                 border: 0px;
                 border-radius: 5px;
                 font-size: 20px;
+                cursor: pointer;
+            }
+
+            .click:hover,
+            #nav>div:nth-child(2) a:hover {
+                color: rgb(11, 157, 186);
+            }
+
+            .dropdown-content a:hover {
+                background-color: rgb(230, 239, 245);
+            }
+
+            button:hover {
+                background-color: rgb(27, 223, 112);
             }
 
             #body>div:nth-child(3) {
@@ -144,13 +216,22 @@
 
             #body>div:nth-child(1)>div:nth-child(1) {
                 display: flex;
-                padding: 20px;
                 justify-content: space-evenly;
                 width: 40%;
                 margin: auto;
             }
 
-            /* #body>div:nth-child(1)>div:nth-child(2) {} */
+            #body>div:nth-child(1)>div:nth-child(1)>* {
+                padding-bottom: 20px;
+            }
+
+            #body>div:nth-child(1)>div:nth-child(1)>*:hover {
+                border-bottom: 1px solid black;
+            }
+
+            #body>div:nth-child(1)>div:nth-child(2) {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.281);
+            }
 
             #footer>div:first-child {
                 margin-bottom: 70px;
@@ -213,6 +294,48 @@
             .dropdown {
                 position: relative;
                 display: inline-block;
+                cursor: pointer;
+            }
+
+            #myDropdown img {
+                width: 30px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            #signin button {
+                padding: 15px 50px;
+                margin-top: 20px;
+            }
+
+            #signin {
+                right: 0;
+                width: 400px;
+                padding: 20px;
+                font-size: 25px;
+            }
+
+            #noti {
+
+                right: 0;
+                width: 350px;
+                padding: 20px;
+                margin-right: 160px;
+                /* font-size: 25px; */
+            }
+
+            #noti h2 {
+                margin-bottom: 10px;
+            }
+
+            #noti div {
+                text-align: center;
+                height: 400px;
+                padding-top: 150px;
+            }
+
+            #discount {
+                width: 120px;
             }
 
             .dropdown-content {
@@ -221,9 +344,10 @@
                 background-color: white;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                z-index: 1;
                 border-radius: 10px;
                 margin-top: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
 
             .dropdown-content a {
@@ -234,13 +358,13 @@
             .show {
                 display: block;
             }
-        </style>
+        </style> -->
     </head>
 
     <body>
         <div id="nav">
             <div>
-                <a href="">
+                <a href="index.html">
                     <div id="logo">
                         <h1>Trip</h1>
                         <img src="logo2.png" alt="">
@@ -252,41 +376,92 @@
                     <div onclick="myFunction()" class="click">More Travel ›</div>
 
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="#"><img src="" alt=""> Stays</a>
-                        <a href="#"><img src="" alt=""> Flights</a>
-                        <a href="#"><img src="" alt=""> Cars</a>
+                        <a href="index.html"><img src="Screenshot (68).png" alt=""> Stays</a>
+                        <a href="flights.html"><img src="Screenshot (66).png" alt=""> Flights</a>
+                        <a href="cars.html"><img src="Screenshot (67).png" alt=""> Cars</a>
                     </div>
                 </div>
             </div>
             <div>
-                <a href="support.html">Support</a>
+                <a href="http://www.expedia.co.in/service">Support</a>
                 <div>
-                    <a href="">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkKN4VOU-qlwKwyzF4Dms8qldIqrRW01F0jw&usqp=CAU"
+                    <div>
+                        <img onclick="notifunc()" class="click"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkKN4VOU-qlwKwyzF4Dms8qldIqrRW01F0jw&usqp=CAU"
                             alt="">
-                    </a>
+                    </div>
+                    <div id="noti" class="dropdown-content">
+                        <h2>Notifications</h2>
+                        <hr>
+                        <div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkKN4VOU-qlwKwyzF4Dms8qldIqrRW01F0jw&usqp=CAU"
+                                alt="">
+                            <h2>Stay tuned</h2>
+                            <p>Notifications keep you up to date and help you manage your trips from start to finish.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-                <div>Sign in</div>
+                <div class="dropdown">
+                    <div><img onclick="signfunc()" class="click"
+                            src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
+                            alt=""></div>
+
+                    <div id="signin" class="dropdown-content">
+                        <!-- <img id="discount" src="Screenshot (70).png" alt=""> -->
+                        <h1>🙂</h1>
+                        <h3>Welcome to Tripacco</h3>
+                        <p>Save an average of 15% on thousands of hotels when you're signed in</p>
+                        <button>Sign in</button>
+                        <button>Register</button>
+
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="body">
             <div>
                 <div>
-                    <h4>Stays</h4>
-                    <h4>Flights</h4>
-                    <h4>Cars</h4>
+                    <a href="index.html">
+                        <h4>Stays</h4>
+                    </a>
+                    <a href="flights.html">
+                        <h4>Flights</h4>
+                    </a>
+                    <a href="cars.html">
+                        <h4>Cars</h4>
+                    </a>
                 </div>
                 <div id="search-box">
+                    <div>
+                        <img src="https://media.istockphoto.com/id/1193451471/vector/map-pin-vector-glyph-icon.jpg?s=612x612&w=0&k=20&c=wuWVeHuthNAXzjOO5_VY9SUOd-6cxwpVH8VVfh6Y7Lc="
+                            alt="">
 
+                        <input type="text" placeholder="Going To">
+                    </div>
+                    <div>
+                        <input type="date" name="" id="">
+                    </div>
+                    <div>
+                        <input type="date" name="" id="">
+                    </div>
+                    <div>
+                        <img src="https://mpng.subpng.com/20190404/hgg/kisspng-clip-art-portable-network-graphics-computer-icons-user-svg-png-icon-free-download-14-279-online-5ca6b996b079d2.0608282515544303587229.jpg"
+                            alt="">
+                        Travellers
+                    </div>
                 </div>
+                <button>Search</button>
             </div>
             <div>
                 <div>
                     <h1>Save instantly with Tripacco Rewards</h1>
                     <p>You can enjoy access to perks like Member Prices, saving an average of 15% on thousands of
                         hotels. Terms may apply.</p>
-                    <button>Get Membership</button>
+                    <a href="https://www.expedia.se/en/member-price?langid=2057&rfrr=HeroBannerMOD"><button>Get
+                            Membership</button></a>
                 </div>
             </div>
             <div>
@@ -328,7 +503,7 @@
                 </div>
                 <div>
                     <h3>Help</h3>
-                    <div><a href="support.html">Support</a></div>
+                    <div><a href="http://www.expedia.co.in/service">Support</a></div>
                     <div><a href="">Change or cancel your booking</a></div>
                     <div><a href="">Refund Process</a></div>
                 </div>
@@ -345,97 +520,9 @@
     </body>
 
 </html>
+<script src="index.js"></script>
 <script>
-    let stays = document.querySelector("#body>div:first-child h4:nth-child(1)");
-    let flights = document.querySelector("#body>div:first-child h4:nth-child(2)");
-    let cars = document.querySelector("#body>div:first-child h4:nth-child(3)");
-    let box = document.getElementById("search-box");
-
-    box.style.width = "95%";
-    box.style.margin = "auto";
-
-    xyz();
-
-    stays.addEventListener("click", xyz);
-    flights.addEventListener("click", abc);
-    cars.addEventListener("click", zyx);
-    function xyz() {
-        box.innerHTML = null;
-        let card = document.createElement("div");
-        let go = document.createElement("div");
-        go.innerText = " Going to";
-        go.style.width = "40%";
-        let cIn = document.createElement("div");
-        cIn.innerText = "Check in";
-        cIn.style.width = "15%";
-        let cOut = document.createElement("div");
-        cOut.innerText = "Check out";
-        cOut.style.width = "15%";
-        let trav = document.createElement("div");
-        trav.innerText = "Travellers";
-        trav.style.width = "25%";
-        card.append(go, cIn, cOut, trav);
-        let btn = document.createElement("button");
-        btn.innerText = "Search";
-
-        box.append(card, btn)
-    }
-
-    function abc() {
-        box.innerHTML = null;
-        let card = document.createElement("div");
-        let go = document.createElement("div");
-        go.innerText = " Going to";
-        go.style.width = "40%";
-        let cIn = document.createElement("div");
-        cIn.innerText = "Check in";
-        cIn.style.width = "15%";
-        let cOut = document.createElement("div");
-        cOut.innerText = "Check out";
-        cOut.style.width = "15%";
-        let trav = document.createElement("div");
-        trav.innerText = "Travellers";
-        trav.style.width = "25%";
-        card.append(go, cIn, cOut, trav);
-        let btn = document.createElement("button");
-        btn.innerText = "Search";
-        box.append(card, btn)
-    }
-
-    function zyx() {
-        box.innerHTML = null;
-        let card = document.createElement("div");
-        let go = document.createElement("div");
-        go.innerText = " Going to";
-        go.style.width = "40%";
-        let cIn = document.createElement("div");
-        cIn.innerText = "Check in";
-        cIn.style.width = "15%";
-        let cOut = document.createElement("div");
-        cOut.innerText = "Check out";
-        cOut.style.width = "15%";
-        let trav = document.createElement("div");
-        trav.innerText = "Travellers";
-        trav.style.width = "25%";
-        card.append(go, cIn, cOut, trav);
-        let btn = document.createElement("button");
-        btn.innerText = "Search";
-        box.append(card, btn)
-    }
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function (event) {
-        if (!event.target.matches('.click')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+    // let cin = document.querySelectorAll("#search-box input");
+    // cin[0].addEventListener("click", () => { cin[0].style.outline = "0px" });
+    // cin[1].addEventListener("click", () => { cin[1].style.outline = "0px" });
 </script>
