@@ -13,8 +13,8 @@
                 width: 35%;
                 margin: auto;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-                height: 600px;
-                margin-top: 50px;
+                height: 500px;
+                margin-top: 70px;
                 border-radius: 20px;
                 padding: 20px;
             }
@@ -59,6 +59,7 @@
     </head>
 
     <body>
+        <div id="feedback">Feedback</div>
         <div id="nav">
             <div>
                 <a href="index.html">
@@ -107,6 +108,8 @@
 
                     <div id="signin" class="dropdown-content">
                         <!-- <img id="discount" src="Screenshot (70).png" alt=""> -->
+                        <h1>🙂</h1>
+                        <h3>Welcome to Tripacco</h3>
                         <p>Save an average of 15% on thousands of hotels when you're signed in</p>
                         <button>Sign in</button>
                         <button>Register</button>
@@ -126,6 +129,36 @@
                 <p>New user?</p>
             </a>
         </div>
+        <div id="footer">
+            <div>
+                <div>
+                    <h3>Company</h3>
+                    <div><a href="">About us</a></div>
+                    <div><a href="">Jobs</a></div>
+                    <div><a href="">list your property</a></div>
+                    <div><a href="">Partnership</a></div>
+                </div>
+                <div>
+                    <h3>Policies</h3>
+                    <div><a href="">Privacy Statements</a></div>
+                    <div><a href="">Terms of use</a></div>
+                    <div><a href="">Vrbo Terms & Conditions</a></div>
+                </div>
+                <div>
+                    <h3>Help</h3>
+                    <div><a href="http://www.expedia.co.in/service">Support</a></div>
+                    <div><a href="">Change or cancel your booking</a></div>
+                    <div><a href="">Refund Process</a></div>
+                </div>
+            </div>
+
+            <div id="logo">
+                <h1>Trip</h1>
+                <img src="logo2.png" alt="">
+                <h1>cco</h1>
+            </div>
+            <p>© 2022 Tripacco | All rights reserved</p>
+        </div>
     </body>
 
 </html>
@@ -140,11 +173,14 @@
             email: Form.email.value,
             pass: Form.pass.value
         }
-
+        if (obj.pass == "" || obj.email == "") {
+            alert("! Please fill required fields")
+        }
         for (let i = 0; i < data.length; i++) {
-            if (obj.email === data[i].email) {
-                if (obj.pass === data[i].pass) {
+            if (obj.email === data[i].email && obj.email !== "") {
+                if (obj.pass === data[i].pass && obj.pass !== "") {
                     alert("Sign in Successful");
+                    window.location = "index.html"
                 } else {
                     alert("Wrong Credentials");
                 }
@@ -152,6 +188,5 @@
         }
         Form.email.value = "";
         Form.pass.value = "";
-        window.location = "index.html"
     })
 </script>

@@ -82,6 +82,18 @@
 #body>div:nth-child(2)>div p {
     font-size: 20px;
 }
+#feedback {
+    position: fixed;
+    left: -55px;
+    top: 400px;
+    color: white;
+    background-color: rgb(76, 211, 134);
+    padding: 10px 35px;
+
+    font-size: 20px;
+    border-radius: 5px;
+    rotate: -90deg;
+}
 
 button {
     color: white;
@@ -155,7 +167,7 @@ button:hover {
     width: 40%;
     margin: auto;
 }
-#search-box~button{
+/* #search-box~button{
     display: block;
     margin: auto;
     padding: 15px 50px;
@@ -163,7 +175,7 @@ button:hover {
 }
 #search-box div{
     cursor: pointer;
-}
+} */
 
 #body>div:nth-child(1)>div:nth-child(1)>* {
     padding-bottom: 20px;
@@ -217,24 +229,24 @@ a {
     color: black;
 }
 
-#search-box>div>* {
+/* #search-box>div>* {
     height: 50px;
     border: 1px solid rgba(0, 0, 0, 0.575);
     border-radius: 10px;
-}
+} */
 
-#search-box>div {
+/* #search-box>div {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid rgba(131, 129, 129, 0.438);
     padding: 30px;
-}
+} */
 
-#search-box button {
+/* #search-box button {
     display: block;
     padding: 10px 60px;
     margin: auto;
-}
+} */
 
 .dropdown {
     position: relative;
