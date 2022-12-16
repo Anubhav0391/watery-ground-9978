@@ -8,9 +8,118 @@
         <link rel="icon" href="logo2.png" />
         <link rel="stylesheet" href="index.css">
         <title>Book Hotels With Tripacco</title>
+        <style>
+            body {
+                background-color: azure;
+            }
+
+            #nav {
+                background-color: white;
+            }
+
+            #cont {
+                width: 70%;
+                margin: auto;
+                margin-top: 50px;
+            }
+
+            #cont>h2 {
+                text-align: center;
+                margin: 50px;
+            }
+
+            #cont>div:first-child {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #cont>div:last-child>div {
+                height: 300px;
+                display: flex;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                background-color: white;
+            }
+
+            #cont>div:last-child>div img {
+                width: 40%;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            #cont>div:last-child>div>div {
+                padding: 30px;
+                width: 60%;
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            #a {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            #b {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            #c {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 5;
+                grid-row-end: 6;
+            }
+
+            #g {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 6;
+                grid-row-end: 7;
+            }
+
+            #f {
+                text-align: right;
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+
+            #d {
+                text-align: right;
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 5;
+                grid-row-end: 6;
+            }
+
+            #e {
+                text-align: right;
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 6;
+                grid-row-end: 7;
+            }
+
+            select {
+                width: 48%;
+                height: 50px;
+                text-align: center;
+                border-radius: 10px;
+                border-color: aquamarine;
+                font-size: 20px;
+                color: rgb(10, 205, 140);
+            }
+        </style>
     </head>
 
     <body>
+        <div id="feedback">Feedback</div>
         <div id="nav">
             <div>
                 <a href="index.html">
@@ -59,6 +168,8 @@
 
                     <div id="signin" class="dropdown-content">
                         <!-- <img id="discount" src="Screenshot (70).png" alt=""> -->
+                        <h1>🙂</h1>
+                        <h3>Welcome to Tripacco</h3>
                         <p>Save an average of 15% on thousands of hotels when you're signed in</p>
                         <button>Sign in</button>
                         <button>Register</button>
@@ -67,7 +178,191 @@
                 </div>
             </div>
         </div>
+
+        <div id="cont">
+            <div>
+                <select id="sort">
+                    <option value="">Sort</option>
+                    <option value="ascending">Price low to high</option>
+                    <option value="descending">Price high to low</option>
+                </select>
+                <select id="filter">
+                    <option value="">Filter By</option>
+                    <option value="2">2 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="5">5 stars</option>
+                </select>
+            </div>
+            <h2><span id="pro">0</span> properties found</h2>
+            <div></div>
+        </div>
+        <div id="footer">
+            <div>
+                <div>
+                    <h3>Company</h3>
+                    <div><a href="">About us</a></div>
+                    <div><a href="">Jobs</a></div>
+                    <div><a href="">list your property</a></div>
+                    <div><a href="">Partnership</a></div>
+                </div>
+                <div>
+                    <h3>Policies</h3>
+                    <div><a href="">Privacy Statements</a></div>
+                    <div><a href="">Terms of use</a></div>
+                    <div><a href="">Vrbo Terms & Conditions</a></div>
+                </div>
+                <div>
+                    <h3>Help</h3>
+                    <div><a href="http://www.expedia.co.in/service">Support</a></div>
+                    <div><a href="">Change or cancel your booking</a></div>
+                    <div><a href="">Refund Process</a></div>
+                </div>
+            </div>
+
+            <div id="logo">
+                <h1>Trip</h1>
+                <img src="logo2.png" alt="">
+                <h1>cco</h1>
+            </div>
+            <p>© 2022 Tripacco | All rights reserved</p>
+        </div>
     </body>
 
 </html>
 <script src="index.js"></script>
+<script>
+    let pro = document.getElementById("pro");
+    let sort = document.getElementById("sort");
+    let filter = document.getElementById("filter");
+    let box = document.querySelector("#cont>div:nth-child(3)");
+
+    let htlarr = [{
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/4000000/3860000/3851700/3851663/958ad657_b.jpg",
+        name: "The Leela Palace New Delhi",
+        city: "New Delhi",
+        ratings: 4.5,
+        price: 16351
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/10000000/10000000/9994600/9994586/99a27f9a_b.jpg",
+        name: "FabExpress Ivory Pearl",
+        city: "Banglore",
+        ratings: 3.8,
+        price: 7243
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/1000000/70000/63600/63545/w2244h1752x0y56-cfe7840c_b.jpg",
+        name: "President - IHCL SeleQtions",
+        city: "Mumbai",
+        ratings: 4.9,
+        price: 12864
+    }, {
+        image: "https://images.trvl-media.com/hotels/2000000/1530000/1528800/1528788/64515cdf.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Bloom Hotel - Bengaluru Airport",
+        city: "Banglore",
+        ratings: 4.7,
+        price: 19890
+    }, {
+        image: "https://images.trvl-media.com/hotels/90000000/89200000/89195000/89194924/121217d1.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Hotel Tokas NiwasOpens",
+        city: "New Delhi",
+        ratings: 3.0,
+        price: 9764
+    }, {
+        image: "https://images.trvl-media.com/hotels/10000000/9150000/9141400/9141328/b50c24b2.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "The Westin Mumbai Garden City",
+        city: "Mumbai",
+        ratings: 2.5,
+        price: 7890
+    }, {
+        image: "https://images.trvl-media.com/hotels/32000000/31060000/31054200/31054148/fe5729de.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Novotel Mumbai Juhu Beach",
+        city: "Mumbai",
+        ratings: 1.9,
+        price: 5463
+    }, {
+        image: "https://images.trvl-media.com/hotels/77000000/76630000/76629300/76629201/023dd309.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "The Sulit Whitefield",
+        city: "Banglore",
+        ratings: 1.7,
+        price: 12987
+    }, {
+        image: "https://images.trvl-media.com/hotels/1000000/980000/974100/974008/4aa18282.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Trident Bandra Kurla",
+        city: "Mumbai",
+        ratings: 2.9,
+        price: 8639
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/3000000/2600000/2593100/2593057/50744d35_b.jpg",
+        name: "Z-HEART HOTEL",
+        city: "New Delhi",
+        ratings: 4.4,
+        price: 5324
+    }, {
+        image: "https://images.trvl-media.com/hotels/7000000/6390000/6382300/6382233/f90787dd.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Sofitel Mumbai BKC",
+        city: "Mumbai",
+        ratings: 3.7,
+        price: 8950
+    }, {
+        image: "https://images.trvl-media.com/hotels/21000000/20170000/20160800/20160759/e31ef8a9.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Benaka Suites",
+        city: "Banglore",
+        ratings: 4.5,
+        price: 12560
+    }]
+
+    filter.addEventListener("change", () => {
+        let filtered = htlarr.filter((el) => {
+            if (el.ratings <= filter.value) { return true } else { return false }
+        })
+        hotel(filtered);
+    })
+    sort.addEventListener("change", () => {
+        let sorted;
+        if (sort.value === "descending") {
+            sorted = htlarr.sort((p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0)
+        } else if (sort.value === "ascending") {
+            sorted = htlarr.sort((p1, p2) => (p1.price < p2.price) ? -1 : (p1.price > p2.price) ? +1 : 0)
+        }
+        hotel(sorted);
+    })
+
+    hotel(htlarr);
+    function hotel(htlarr) {
+        box.innerHTML = null;
+        pro.innerText = htlarr.length;
+        htlarr.forEach((e, i) => {
+            let card = document.createElement("div");
+            let image = document.createElement("img");
+            image.setAttribute("src", e.image);
+            // image.style.display = "block"
+            let div = document.createElement("div");
+            let name = document.createElement("h2");
+            name.innerText = e.name;
+            name.setAttribute("id", "a");
+            let city = document.createElement("p");
+            city.innerText = e.city;
+            city.setAttribute("id", "b");
+            let ref = document.createElement("p");
+            ref.innerText = "Fully refundable";
+            ref.style.color = "teal"
+            ref.setAttribute("id", "c");
+            let preprice = document.createElement("del");
+            preprice.innerText = "₹" + (e.price + 1500);
+            preprice.style.color = "grey"
+            preprice.setAttribute("id", "d");
+            let price = document.createElement("h3");
+            price.innerText = "₹" + e.price;
+            price.setAttribute("id", "e");
+            let rating = document.createElement("p");
+            rating.innerText = "⭐ " + e.ratings;
+            rating.setAttribute("id", "f");
+            let btn = document.createElement("button");
+            btn.innerText = "Book Now";
+            btn.setAttribute("id", "g");
+            div.append(name, city, ref, preprice, price, rating, btn)
+            card.append(image, div);
+            box.append(card);
+        })
+    }
+</script>
