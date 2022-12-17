@@ -24,6 +24,7 @@ window.onclick = function (event) {
     }
 }
 
+
 let signin = document.querySelector("#signin p+button");
 signin.addEventListener("click", () => {
     window.location = "sign in.html";
@@ -34,7 +35,7 @@ signup.addEventListener("click", () => {
 })
 let feedback = document.querySelector("#feedback");
 feedback.addEventListener("click", () => {
-    window.location = "feedback.html";
+    window.location = "https://docs.google.com/forms/d/e/1FAIpQLScNFRNUMQW-pKVIZcg1NEGJdTOBX_g2X8VwqlNnBCON4sZwQA/viewform?vc=0&c=0&w=1&flr=0";
 })
 let hotels = document.querySelector("#body>div:nth-child(4)");
 hotels.addEventListener("click", () => {

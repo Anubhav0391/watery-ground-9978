@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tripacco : Traveling and Lodging</title>
         <link rel="icon" href="logo2.png" />
-        <link rel="stylesheet" href="index.css">
+        <link id="css" rel="stylesheet" href="index.css">
+        <!-- <link rel="stylesheet" href="hotel.css"> -->
         <style>
             #search-box {
                 display: grid;
@@ -76,10 +77,28 @@
                 padding: 20px;
                 padding-left: 27px;
                 font-size: 25px;
-                text-align: center;
+                /* text-align: left; */
                 border-radius: 0px;
+                top: 25px;
             }
 
+            #trav>div {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 20px;
+            }
+
+            #trav button {
+                padding: 5px;
+            }
+
+            #done {
+                display: block;
+                margin: auto;
+                margin-top: 20px;
+            }
 
             #abc {
                 display: flex;
@@ -91,6 +110,96 @@
 
             #abc:hover {
                 color: black;
+            }
+
+
+            @media all and (min-width:768px) and (max-width:1024px) {
+                #search-box {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 8px;
+                }
+
+
+                #body>div:first-child {
+                    height: 380px;
+                }
+
+                #search-box>div:nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+
+                }
+
+                #search-box>div:nth-child(2) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+
+                }
+
+                #search-box>div:nth-child(3) {
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+
+                }
+
+                #search-box>div:nth-child(4) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+
+                }
+            }
+
+
+            @media all and (min-width:320px) and (max-width:767px) {
+                #search-box {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 8px;
+                    grid-auto-rows: auto;
+                }
+
+                #search-box~button {
+                    padding: 10px 30px;
+                    margin-top: 10px;
+                }
+
+                #search-box>div {
+                    min-width: 40px;
+                    /* height: auto; */
+                }
+
+                #body>div:first-child {
+                    height: 350px;
+                    box-shadow: none;
+
+                }
+
+                #search-box>div:nth-child(1) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+
+                }
+
+                #search-box>div:nth-child(2) {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+
+                /* #search-box>div:nth-child(2) input,
+                #search-box>div:nth-child(3) input {
+                    font-size: ;
+                } */
+
+                #search-box>div:nth-child(3) {
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+
+                }
+
+                #search-box>div:nth-child(4) {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+
+                }
             }
         </style>
 
@@ -196,20 +305,35 @@
 
                             </datalist>
                         </div>
-                        <div>
-                            <input type="date" name="" id="">
+                        <div style="display: block;">
+                            Check in
+                            <input type="date" name="" id="" style="color: gray;">
                         </div>
-                        <div>
-                            <input type="date" name="" id="">
+                        <div style="display: block;">
+                            Check out
+                            <input type="date" name="" id="" style="color: gray;">
                         </div>
                         <div id="one" class="dropdown">
                             <div id="abc" onclick="travfunc()" class="click">
                                 <img src="https://mpng.subpng.com/20190404/hgg/kisspng-clip-art-portable-network-graphics-computer-icons-user-svg-png-icon-free-download-14-279-online-5ca6b996b079d2.0608282515544303587229.jpg"
                                     alt="">
-                                <p>Travellers</p>
+                                <div style="font-size: 15px; padding-bottom: 15px;">
+                                    Travellers
+                                    <div style="font-size: 20px;color: gray;">1 Room, <span>2</span> Travellers</div>
+                                    <!-- <input type="text" placeholder="1 Room, 2 Travellers"> -->
+                                </div>
                             </div>
                             <div id="trav" class="dropdown-content">
-
+                                <h3>Travellers</h3>
+                                <h4>Room 1</h4>
+                                <div>
+                                    <p>Adults </p>
+                                    <button id="minus">◀</button>
+                                    <span id="count">0</span>
+                                    <button id="plus">▶</button>
+                                </div>
+                                <p style="text-align: right;font-size: 16px;color: teal;margin-top: 10px;">Add room</p>
+                                <button id="done">Done</button>
                             </div>
                         </div>
                     </div>
@@ -283,6 +407,148 @@
 </html>
 <script src="index.js"></script>
 <script>
-    let searching = document.getElementById("searching");
+    let minus = document.getElementById("minus");
+    let plus = document.getElementById("plus");
+    let count = document.getElementById("count");
+    let counter = 0;
+    let done = document.getElementById("done");
 
+    minus.addEventListener("click", () => {
+        counter--;
+        count.innerText = counter;
+    })
+    plus.addEventListener("click", () => {
+        counter++;
+        count.innerText = counter;
+    })
+    let htlarr = [{
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/4000000/3860000/3851700/3851663/958ad657_b.jpg",
+        name: "The Leela Palace New Delhi",
+        city: "New Delhi",
+        ratings: 4.5,
+        price: 16351
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/10000000/10000000/9994600/9994586/99a27f9a_b.jpg",
+        name: "FabExpress Ivory Pearl",
+        city: "Banglore",
+        ratings: 3.8,
+        price: 7243
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/1000000/70000/63600/63545/w2244h1752x0y56-cfe7840c_b.jpg",
+        name: "President - IHCL SeleQtions",
+        city: "Mumbai",
+        ratings: 4.9,
+        price: 12864
+    }, {
+        image: "https://images.trvl-media.com/hotels/2000000/1530000/1528800/1528788/64515cdf.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Bloom Hotel - Bengaluru Airport",
+        city: "Banglore",
+        ratings: 4.7,
+        price: 19890
+    }, {
+        image: "https://images.trvl-media.com/hotels/90000000/89200000/89195000/89194924/121217d1.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Hotel Tokas NiwasOpens",
+        city: "New Delhi",
+        ratings: 3.0,
+        price: 9764
+    }, {
+        image: "https://images.trvl-media.com/hotels/10000000/9150000/9141400/9141328/b50c24b2.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "The Westin Mumbai Garden City",
+        city: "Mumbai",
+        ratings: 2.5,
+        price: 7890
+    }, {
+        image: "https://images.trvl-media.com/hotels/32000000/31060000/31054200/31054148/fe5729de.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Novotel Mumbai Juhu Beach",
+        city: "Mumbai",
+        ratings: 1.9,
+        price: 5463
+    }, {
+        image: "https://images.trvl-media.com/hotels/77000000/76630000/76629300/76629201/023dd309.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "The Sulit Whitefield",
+        city: "Banglore",
+        ratings: 1.7,
+        price: 12987
+    }, {
+        image: "https://images.trvl-media.com/hotels/1000000/980000/974100/974008/4aa18282.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Trident Bandra Kurla",
+        city: "Mumbai",
+        ratings: 2.9,
+        price: 8639
+    }, {
+        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/3000000/2600000/2593100/2593057/50744d35_b.jpg",
+        name: "Z-HEART HOTEL",
+        city: "New Delhi",
+        ratings: 4.4,
+        price: 5324
+    }, {
+        image: "https://images.trvl-media.com/hotels/7000000/6390000/6382300/6382233/f90787dd.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Sofitel Mumbai BKC",
+        city: "Mumbai",
+        ratings: 3.7,
+        price: 8950
+    }, {
+        image: "https://images.trvl-media.com/hotels/21000000/20170000/20160800/20160759/e31ef8a9.jpg?impolicy=resizecrop&rw=455&ra=fit",
+        name: "Benaka Suites",
+        city: "Banglore",
+        ratings: 4.5,
+        price: 12560
+    }];
+    let arr = [];
+    for (let i = 0; i < htlarr.length; i++) {
+        arr.push(htlarr[i].city)
+    }
+
+    let css = document.getElementById("css");
+    let srch = document.getElementById("searching");
+    let btn = document.getElementById("btnsrch");
+    btn.addEventListener("click", () => {
+        if (!arr.includes(srch.value)) { alert("not found") } else {
+            let filtered = htlarr.filter((el) => {
+                if (el.city === srch.value) { return true } else { return false }
+            })
+            hotel(filtered);
+        }
+
+
+    })
+    function hotel(htlarr) {
+        document.querySelector("body").innerText = null;
+        // pro.innerText = htlarr.length;
+        htlarr.forEach((e, i) => {
+            let card = document.createElement("div");
+            let image = document.createElement("img");
+            image.setAttribute("src", e.image);
+            // image.style.display = "block"
+            let div = document.createElement("div");
+            let name = document.createElement("h2");
+            name.innerText = e.name;
+            name.setAttribute("id", "a");
+            let city = document.createElement("p");
+            city.innerText = e.city;
+            city.setAttribute("id", "b");
+            let ref = document.createElement("p");
+            ref.innerText = "Fully refundable";
+            ref.style.color = "teal"
+            ref.setAttribute("id", "c");
+            let preprice = document.createElement("del");
+            preprice.innerText = "₹" + (e.price + 1500);
+            preprice.style.color = "grey"
+            preprice.setAttribute("id", "d");
+            let price = document.createElement("h3");
+            price.innerText = "₹" + e.price;
+            price.setAttribute("id", "e");
+            let rating = document.createElement("p");
+            rating.innerText = "⭐ " + e.ratings;
+            rating.setAttribute("id", "f");
+            let btn = document.createElement("button");
+            btn.innerText = "Book Now";
+            btn.setAttribute("id", "g");
+            div.append(name, city, ref, preprice, price, rating, btn)
+            card.append(image, div);
+            document.querySelector("body").append(card);
+        })
+
+        css.setAttribute("href", "hotel.css")
+    }
 </script>
