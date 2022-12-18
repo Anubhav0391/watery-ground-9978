@@ -461,6 +461,9 @@ function hotel(htlarr) {
         let btn = document.createElement("button");
         btn.innerText = "Book Now";
         btn.setAttribute("id", "g");
+        btn.addEventListener("click", () => {
+            window.location = "updatedSoon.html"
+        })
         div.append(name, city, ref, preprice, price, rating, btn)
         card.append(image, div);
         box.append(card);

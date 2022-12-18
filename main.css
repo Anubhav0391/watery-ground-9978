@@ -52,6 +52,9 @@
     font-size: 20px;
 }
 
+#search-box *{
+    cursor: pointer;
+}
 
 #search-box img {
     height: 30px;

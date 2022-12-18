@@ -371,6 +371,7 @@ filter.addEventListener("change", () => {
         if (el.ratings <= filter.value) { return true } else { return false }
     })
     hotel(filtered);
+    if (filter.value === "") { hotel(htlarr) }
 })
 sort.addEventListener("change", () => {
     let sorted;
@@ -378,7 +379,7 @@ sort.addEventListener("change", () => {
         sorted = htlarr.sort((p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0)
     } else if (sort.value === "ascending") {
         sorted = htlarr.sort((p1, p2) => (p1.price < p2.price) ? -1 : (p1.price > p2.price) ? +1 : 0)
-    }
+    } else if (sort.value === "") { hotel(htlarr) }
     hotel(sorted);
 })
 
@@ -416,7 +417,7 @@ function hotel(htlarr) {
         btn.innerText = "Book Now";
         btn.setAttribute("id", "g");
         btn.addEventListener("click", () => {
-
+            window.location = "updatedSoon.html"
         })
         div.append(name, city, ref, preprice, price, rating, btn)
         card.append(image, div);
