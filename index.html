@@ -7,201 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tripacco : Traveling and Lodging</title>
         <link rel="icon" href="logo2.png" />
-        <link id="css" rel="stylesheet" href="index.css">
-        <!-- <link rel="stylesheet" href="hotel.css"> -->
-        <style>
-            #search-box {
-                display: grid;
-                grid-template-columns: repeat(7, 1fr);
-                gap: 10px;
-                grid-auto-rows: 60px;
-            }
-
-            #search-box~button {
-                display: block;
-                margin: auto;
-                padding: 15px 50px;
-                margin-top: 20px;
-            }
-
-            #search-box>div {
-                border: 1px solid rgba(0, 0, 0, 0.493);
-                border-radius: 5px;
-                display: flex;
-                align-items: center;
-                padding-left: 10px;
-                justify-content: start;
-            }
-
-            #search-box>div:nth-child(1) {
-                grid-column-start: 1;
-                grid-column-end: 4;
-            }
-
-            #search-box>div:nth-child(2) {
-                grid-column-start: 4;
-                grid-column-end: 5;
-            }
-
-            #search-box>div:nth-child(3) {
-                grid-column-start: 5;
-                grid-column-end: 6;
-            }
-
-            #search-box>div:nth-child(4) {
-                grid-column-start: 6;
-                grid-column-end: 8;
-            }
-
-            #search-box input:focus {
-                outline: white;
-            }
-
-            #search-box input {
-                border: 0px;
-                width: 100%;
-                font-size: 20px;
-            }
-
-
-            #search-box img {
-                height: 30px;
-                border: 0px;
-                margin-right: 20px;
-                /* margin-bottom: 10px; */
-            }
-
-            #trav {
-                width: 285px;
-                right: 0;
-                padding: 20px;
-                padding-left: 27px;
-                font-size: 25px;
-                /* text-align: left; */
-                border-radius: 0px;
-                top: 25px;
-            }
-
-            #trav>div {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-                padding-top: 20px;
-            }
-
-            #trav button {
-                padding: 5px;
-            }
-
-            #done {
-                display: block;
-                margin: auto;
-                margin-top: 20px;
-            }
-
-            #abc {
-                display: flex;
-                width: 100%;
-                height: 100%;
-                align-items: center;
-                font-size: 20px;
-            }
-
-            #abc:hover {
-                color: black;
-            }
-
-
-            @media all and (min-width:768px) and (max-width:1024px) {
-                #search-box {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 8px;
-                }
-
-
-                #body>div:first-child {
-                    height: 380px;
-                }
-
-                #search-box>div:nth-child(1) {
-                    grid-column-start: 1;
-                    grid-column-end: 3;
-
-                }
-
-                #search-box>div:nth-child(2) {
-                    grid-column-start: 1;
-                    grid-column-end: 2;
-
-                }
-
-                #search-box>div:nth-child(3) {
-                    grid-column-start: 2;
-                    grid-column-end: 3;
-
-                }
-
-                #search-box>div:nth-child(4) {
-                    grid-column-start: 1;
-                    grid-column-end: 3;
-
-                }
-            }
-
-
-            @media all and (min-width:320px) and (max-width:767px) {
-                #search-box {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 8px;
-                    grid-auto-rows: auto;
-                }
-
-                #search-box~button {
-                    padding: 10px 30px;
-                    margin-top: 10px;
-                }
-
-                #search-box>div {
-                    min-width: 40px;
-                    /* height: auto; */
-                }
-
-                #body>div:first-child {
-                    height: 350px;
-                    box-shadow: none;
-
-                }
-
-                #search-box>div:nth-child(1) {
-                    grid-column-start: 1;
-                    grid-column-end: 3;
-
-                }
-
-                #search-box>div:nth-child(2) {
-                    grid-column-start: 1;
-                    grid-column-end: 2;
-                }
-
-                /* #search-box>div:nth-child(2) input,
-                #search-box>div:nth-child(3) input {
-                    font-size: ;
-                } */
-
-                #search-box>div:nth-child(3) {
-                    grid-column-start: 2;
-                    grid-column-end: 3;
-
-                }
-
-                #search-box>div:nth-child(4) {
-                    grid-column-start: 1;
-                    grid-column-end: 3;
-
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="main.css">
+        <link id="css" rel="stylesheet">
 
         <head>
 
@@ -287,6 +95,7 @@
 
                             <input id="searching" type="text" placeholder="Going To" list="cities">
                             <datalist id="cities">
+                                <option value=" "> Where are you going ? </option>
                                 <option value="New Delhi"> New Delhi </option>
                                 <option value="Kanpur"> Kanpur </option>
                                 <option value="Lucknow"> Lucknow </option>
@@ -319,7 +128,8 @@
                                     alt="">
                                 <div style="font-size: 15px; padding-bottom: 15px;">
                                     Travellers
-                                    <div style="font-size: 20px;color: gray;">1 Room, <span>2</span> Travellers</div>
+                                    <div style="font-size: 20px;color: gray;">1 Room, <span id="adult">2</span>
+                                        Travellers</div>
                                     <!-- <input type="text" placeholder="1 Room, 2 Travellers"> -->
                                 </div>
                             </div>
@@ -328,9 +138,9 @@
                                 <h4>Room 1</h4>
                                 <div>
                                     <p>Adults </p>
-                                    <button id="minus">◀</button>
-                                    <span id="count">0</span>
-                                    <button id="plus">▶</button>
+                                    <button id="minus" class="click">◀</button>
+                                    <span id="count">2</span>
+                                    <button id="plus" class="click">▶</button>
                                 </div>
                                 <p style="text-align: right;font-size: 16px;color: teal;margin-top: 10px;">Add room</p>
                                 <button id="done">Done</button>
@@ -371,6 +181,25 @@
                 </div>
 
             </div>
+
+            <div id="cont">
+                <div>
+                    <select id="sort">
+                        <option value="">Sort</option>
+                        <option value="ascending">Price low to high</option>
+                        <option value="descending">Price high to low</option>
+                    </select>
+                    <select id="filter">
+                        <option value="">Filter By</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+                </div>
+                <h2><span id="pro">0</span> properties found</h2>
+                <div></div>
+            </div>
             <div id="footer">
                 <div>
                     <div>
@@ -406,149 +235,4 @@
 
 </html>
 <script src="index.js"></script>
-<script>
-    let minus = document.getElementById("minus");
-    let plus = document.getElementById("plus");
-    let count = document.getElementById("count");
-    let counter = 0;
-    let done = document.getElementById("done");
-
-    minus.addEventListener("click", () => {
-        counter--;
-        count.innerText = counter;
-    })
-    plus.addEventListener("click", () => {
-        counter++;
-        count.innerText = counter;
-    })
-    let htlarr = [{
-        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/4000000/3860000/3851700/3851663/958ad657_b.jpg",
-        name: "The Leela Palace New Delhi",
-        city: "New Delhi",
-        ratings: 4.5,
-        price: 16351
-    }, {
-        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/10000000/10000000/9994600/9994586/99a27f9a_b.jpg",
-        name: "FabExpress Ivory Pearl",
-        city: "Banglore",
-        ratings: 3.8,
-        price: 7243
-    }, {
-        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/1000000/70000/63600/63545/w2244h1752x0y56-cfe7840c_b.jpg",
-        name: "President - IHCL SeleQtions",
-        city: "Mumbai",
-        ratings: 4.9,
-        price: 12864
-    }, {
-        image: "https://images.trvl-media.com/hotels/2000000/1530000/1528800/1528788/64515cdf.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Bloom Hotel - Bengaluru Airport",
-        city: "Banglore",
-        ratings: 4.7,
-        price: 19890
-    }, {
-        image: "https://images.trvl-media.com/hotels/90000000/89200000/89195000/89194924/121217d1.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Hotel Tokas NiwasOpens",
-        city: "New Delhi",
-        ratings: 3.0,
-        price: 9764
-    }, {
-        image: "https://images.trvl-media.com/hotels/10000000/9150000/9141400/9141328/b50c24b2.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "The Westin Mumbai Garden City",
-        city: "Mumbai",
-        ratings: 2.5,
-        price: 7890
-    }, {
-        image: "https://images.trvl-media.com/hotels/32000000/31060000/31054200/31054148/fe5729de.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Novotel Mumbai Juhu Beach",
-        city: "Mumbai",
-        ratings: 1.9,
-        price: 5463
-    }, {
-        image: "https://images.trvl-media.com/hotels/77000000/76630000/76629300/76629201/023dd309.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "The Sulit Whitefield",
-        city: "Banglore",
-        ratings: 1.7,
-        price: 12987
-    }, {
-        image: "https://images.trvl-media.com/hotels/1000000/980000/974100/974008/4aa18282.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Trident Bandra Kurla",
-        city: "Mumbai",
-        ratings: 2.9,
-        price: 8639
-    }, {
-        image: "https://a.travel-assets.com/media/meso_cm/PAPI/Images/hotels/3000000/2600000/2593100/2593057/50744d35_b.jpg",
-        name: "Z-HEART HOTEL",
-        city: "New Delhi",
-        ratings: 4.4,
-        price: 5324
-    }, {
-        image: "https://images.trvl-media.com/hotels/7000000/6390000/6382300/6382233/f90787dd.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Sofitel Mumbai BKC",
-        city: "Mumbai",
-        ratings: 3.7,
-        price: 8950
-    }, {
-        image: "https://images.trvl-media.com/hotels/21000000/20170000/20160800/20160759/e31ef8a9.jpg?impolicy=resizecrop&rw=455&ra=fit",
-        name: "Benaka Suites",
-        city: "Banglore",
-        ratings: 4.5,
-        price: 12560
-    }];
-    let arr = [];
-    for (let i = 0; i < htlarr.length; i++) {
-        arr.push(htlarr[i].city)
-    }
-
-    let css = document.getElementById("css");
-    let srch = document.getElementById("searching");
-    let btn = document.getElementById("btnsrch");
-    btn.addEventListener("click", () => {
-        if (!arr.includes(srch.value)) { alert("not found") } else {
-            let filtered = htlarr.filter((el) => {
-                if (el.city === srch.value) { return true } else { return false }
-            })
-            hotel(filtered);
-        }
-
-
-    })
-    function hotel(htlarr) {
-        document.querySelector("body").innerText = null;
-        // pro.innerText = htlarr.length;
-        htlarr.forEach((e, i) => {
-            let card = document.createElement("div");
-            let image = document.createElement("img");
-            image.setAttribute("src", e.image);
-            // image.style.display = "block"
-            let div = document.createElement("div");
-            let name = document.createElement("h2");
-            name.innerText = e.name;
-            name.setAttribute("id", "a");
-            let city = document.createElement("p");
-            city.innerText = e.city;
-            city.setAttribute("id", "b");
-            let ref = document.createElement("p");
-            ref.innerText = "Fully refundable";
-            ref.style.color = "teal"
-            ref.setAttribute("id", "c");
-            let preprice = document.createElement("del");
-            preprice.innerText = "₹" + (e.price + 1500);
-            preprice.style.color = "grey"
-            preprice.setAttribute("id", "d");
-            let price = document.createElement("h3");
-            price.innerText = "₹" + e.price;
-            price.setAttribute("id", "e");
-            let rating = document.createElement("p");
-            rating.innerText = "⭐ " + e.ratings;
-            rating.setAttribute("id", "f");
-            let btn = document.createElement("button");
-            btn.innerText = "Book Now";
-            btn.setAttribute("id", "g");
-            div.append(name, city, ref, preprice, price, rating, btn)
-            card.append(image, div);
-            document.querySelector("body").append(card);
-        })
-
-        css.setAttribute("href", "hotel.css")
-    }
-</script>
+<script src="main.js"></script>
