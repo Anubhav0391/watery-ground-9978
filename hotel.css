@@ -1,22 +1,13 @@
+
 body {
     background-color: azure;
 }
+
 #nav {
     background-color: white;
 }
-button {
-    color: white;
-    background-color: rgb(76, 211, 134);
-    padding: 15px;
-    border: 0px;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: rgb(27, 223, 112);
-}
-body {
+
+#cont {
     width: 70%;
     margin: auto;
     margin-top: 50px;
@@ -32,7 +23,7 @@ body {
     justify-content: space-between;
 }
 
-body>div {
+#cont>div:last-child>div {
     height: 300px;
     display: flex;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -41,14 +32,14 @@ body>div {
     background-color: white;
 }
 
-body>div>img {
+#cont>div:last-child>div img {
     width: 40%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-body>div>div {
-    padding: 10px 30px;
+#cont>div:last-child>div>div {
+    padding: 30px;
     width: 60%;
     display: grid;
     gap: 10px;
@@ -113,4 +104,41 @@ select {
     border-color: aquamarine;
     font-size: 20px;
     color: rgb(10, 205, 140);
+}
+
+@media all and (min-width:768px) and (max-width:1024px) {
+    #cont>div:last-child>div>div{
+        column-gap: 0px;
+    }
+    #g{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    #cont{
+        width: 85%;
+    }
+}
+
+@media all and (min-width:320px) and (max-width:767px) {
+    #cont>div:last-child>div{
+        display: block;
+        height: 530px;
+        
+    }
+    #cont>div:last-child>div img{
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+        height: 270px;
+    }
+    #cont>div:last-child>div div{
+        width: 100%;
+    }
+    #g{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    #cont{
+        width: 85%;
+    }
 }
