@@ -11,7 +11,6 @@ Expedia.com is an online travel agency. It can be used to book airline tickets, 
 3. JavaScript
 <br/>
 
-
 # Feautres: <br/>
 
 ## Home Page <br/>
