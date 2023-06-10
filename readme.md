@@ -9,11 +9,11 @@ Expedia.com is an online travel agency. It can be used to book airline tickets, 
 1. HTML<br/>
 2. CSS<br/>
 3. JavaScript
-<br/><br/><br/>
+<br/>
 
 
 # Feautres: <br/>
-<br/><br/>
+
 ## Home Page <br/>
 <img src="https://i.ibb.co/sP4m3br/Whats-App-Image-2023-04-03-at-11-27-49-AM.jpg"/><br/>
 <br/>
