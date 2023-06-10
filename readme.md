@@ -8,8 +8,7 @@ Expedia.com is an online travel agency. It can be used to book airline tickets, 
 # Tech Stacks:<br/>
 1. HTML<br/>
 2. CSS<br/>
-3. JavaScript
-<br/>
+3. JavaScript<br/>
 
 # Feautres: <br/>
 
