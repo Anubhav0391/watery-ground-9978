@@ -1,5 +1,5 @@
 # <p style="font-size:160px">TRIPACCO</p>
-<br/><br/>
+<br/>
 # About Project: <br/>
 Expedia.com is an online travel agency. It can be used to book airline tickets, hotel reservations, car rentals.
 <br/>
